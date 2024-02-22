@@ -1,0 +1,950 @@
+
+/* ========================================================ROOT============================ */
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+.content-wrap {
+    flex: 1 0;
+    /* Ensures that the content expands to fill available space */
+}
+
+.footer-area {
+    flex-shrink: 0;
+    /* Ensures that the footer does not shrink */
+    /* Your existing styles */
+}
+.site-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* full viewport height */
+}
+
+.site-content {
+    flex: 1;
+}
+
+.main-content {
+    flex-grow: 1;
+    /* allows it to expand to fill available space */
+    /* Add your desired background color here */
+    background-color: #b4b1aa;
+    /* This should be the color that matches your design */
+    padding: 20px;
+    /* or any other padding you prefer */
+}
+.no-products-message {
+    font-size: 18px;
+    color: #777;
+    text-align: center;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+/* ==============================HEADER======================================= */
+.header-navbar {
+    padding: 0.5rem 1rem;
+    background-color: #59544a;
+}
+
+.navbar-brand img {
+    max-height: 50px;
+}
+
+.header-search {
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    border-radius: 20px;
+    width: 50vh;
+    border: 2px solid #ffffff;
+    margin-right: .5rem;
+}
+
+.search-button {
+    border-radius: 20px;
+    border: 2px solid #ffffff;
+    /* White border for contrast */
+    background-color: #59544a;
+    color: white;
+}
+
+.search-button:hover {
+    background-color: #a39b8b;
+    /* Even darker blue on hover */
+}
+
+.header-user-icon {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    transition: color 0.3s;
+
+}
+
+.header-user-icon:hover {
+    color: #ffa500;
+}
+
+.fa-user {
+    font-size: 1.5rem;
+}
+/* layoutSite.css */
+
+
+
+.search-results {
+    position: absolute;
+    top: 100%;
+    /* Position below the search bar */
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    background-color: #fff;
+    /* Background color for the results */
+    border: 1px solid #ccc;
+    /* Border for the results */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Box shadow for the results */
+    padding: 10px;
+    z-index: 1000;
+    /* Ensure it's above other elements */
+    
+}
+
+.search-result-item {
+    margin-bottom: 10px;
+}
+
+.search-result-image {
+    width: 50px;
+    /* Adjust the width as needed */
+    height: auto;
+    /* Maintain aspect ratio */
+    margin-right: 10px;
+}
+
+/* Add other styles as needed */
+/* ===============================================MENU===================================== */
+.menu-navbar {
+    background-color: #C6AA98;
+}
+
+.menu-navbar-brand {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.menu-toggler-icon {
+    background-color: #fff;
+}
+
+.menu-nav .menu-nav-link {
+    color: #fff;
+    font-size: 1rem;
+    margin: 0 10px;
+    text-transform: uppercase;
+}
+
+.menu-nav .menu-nav-link:hover {
+    color: #ccc;
+}
+/* ==============================FOOTER======================================= */
+.footer-area {
+    background-color: #59544a;
+    /* Updated primary color */
+    color: white;
+    /* or another color that provides good contrast */
+}
+
+.footer-area h5 {
+    color: #ffffff;
+    /* Ensuring header color is white for contrast */
+    margin-bottom: 15px;
+    /* Spacing under headers */
+}
+
+.footer-area ul {
+    padding-left: 0;
+    /* Remove default padding */
+    list-style-type: none;
+    /* Remove default list style */
+}
+
+.footer-area a.text-white {
+    color: #ffffff;
+    /* Keeping links white for contrast */
+    text-decoration: none;
+    /* No underline */
+}
+
+.footer-area a.text-white:hover {
+    color: #ffa500;
+    /* Color change on hover */
+}
+
+.footer-area .form-control {
+    border-radius: 20px;
+    border: 1px solid #ffffff;
+    background-color: transparent;
+    color: white;
+    /* Text color for inputs */
+}
+
+.footer-area .btn-secondary {
+    border-radius: 20px;
+    border-color: #ffffff;
+    background-color: #6c757d;
+    /* Adjust if necessary */
+    color: white;
+    /* Button text color */
+}
+
+.footer-area .btn-secondary:hover {
+    background-color: #5a6268;
+    /* Darken button on hover */
+}
+/* ===================================================scroll to top button======================== */
+.scroll-to-top-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #eae6de;
+    color: #000;
+    border: 1px solid #007bff;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    font-size: 18px;
+}
+
+.scroll-to-top-btn.visible {
+    opacity: 1;
+}
+
+.scroll-to-top-btn:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* =========================CAROUSEL ================================== */
+/* Set a fixed size for the carousel item */
+.carousel-item {
+    height: 300px;
+    /* Adjust the height as needed */
+    width: 100%;
+    /* Full width of the container */
+    position: relative;
+    /* Needed to position the image absolutely within the item */
+}
+
+/* Ensure images cover the area of the item */
+.carousel-item img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: auto;
+    height: 100%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    /* This property makes the image cover the area, cropping it if necessary */
+}
+
+.category-section {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    /* Add some padding inside the column */
+}
+
+.list-group {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    /* Set the height to fill the vertical space */
+}
+
+.list-group-item {
+    flex: 1;
+    /* Flex-grow to distribute space evenly */
+    /* margin-bottom: 10px; */
+    /* Add some margin to the bottom of each category */
+    background-color: #f8f9fa;
+    /* Light grey background */
+    border: 1px solid #ddd;
+    /* Border for the items */
+    border-radius: 4px;
+    /* Slightly rounded borders for aesthetics */
+    color: #333;
+    /* Text color */
+    text-decoration: none;
+    /* Remove underline from links */
+    transition: background-color 0.2s;
+    /* Smooth transition for hover effect */
+}
+
+.list-group-item a {
+    color: inherit;
+    /* Inherit color from parent */
+    text-decoration: none;
+    /* No underline */
+    display: block;
+    /* Make the link fill the list item */
+}
+
+.list-group-item a:hover {
+    text-decoration: none;
+    /* No underline on hover */
+}
+
+.list-group-item:last-child {
+    margin-bottom: 0;
+    /* No margin at the bottom for the last item */
+}
+
+/* ========================================================PRODUCT================================================
+ */
+
+ /* Các style chung cho trang sản phẩm mới */
+ /* Đặt padding cho toàn bộ container sản phẩm mới để tạo không gian hai bên */
+ .product-container {
+     padding: 20px 5%;
+     /* Tăng padding hai bên */
+     background-color: #696262;
+ }
+
+ .product-header {
+     padding-bottom: 5px;
+     text-align: center;
+     color: #040404;
+     background-color: #eae6de;
+ }
+
+ /* Style cho từng card sản phẩm */
+ /* Đảm bảo rằng tất cả card có cùng chiều cao */
+ .product-card {
+     height: 100%;
+     /* Set chiều cao card bằng nhau */
+     display: flex;
+     /* Cho phép các items bên trong flex container có thể co giãn */
+     flex-direction: column;
+     /* Sắp xếp các items theo hướng dọc */
+ }
+
+ .product-card:hover {
+     transform: translateY(-5px);
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+ }
+
+ .product-card img {
+    height: 200px;
+        object-fit: cover;
+        width: 100%;
+        /* Ensure the image takes the full width of its container */
+        border-radius: 0.25rem 0.25rem 0 0;
+ }
+
+ .product-card-body {
+     flex: 1;
+     /* Cho phép body của card co giãn để chiếm hết không gian */
+     display: flex;
+     /* Sử dụng flex layout */
+     flex-direction: column;
+     /* Sắp xếp nội dung theo hướng dọc */
+     justify-content: space-between;
+     /* Phân bố không gian giữa các items */
+    background-color: #fff;
+        /* Đặt màu nền mặc định cho phần body */
+        border-radius: 0.25rem;
+        /* Bo tròn các góc của card */
+        padding: 1rem;
+        /* Đặt padding cho card body */
+ }
+
+.product-card-title {
+    font-size: 1.2rem;
+    color: #007bff;
+    font-weight: 500;
+    margin-bottom: 15px;
+    overflow: hidden;
+    /* Ngăn nội dung tràn ra */
+    text-overflow: ellipsis;
+    /* Thêm dấu chấm lửng nếu nội dung bị cắt */
+    display: -webkit-box;
+    /* Cho phép sử dụng các thuộc tính của flexbox */
+    -webkit-line-clamp: 2;
+    /* Giới hạn số dòng hiển thị là 2 */
+    -webkit-box-orient: vertical;
+    /* Bố trí theo chiều dọc */
+    line-height: 1.2;
+    /* Đặt độ cao của dòng, cần phù hợp với kích thước font */
+    max-height: 2.4em;
+    /* Giới hạn chiều cao tối đa dựa trên số dòng và độ cao dòng */
+}
+
+ .product-card-price {
+     font-size: 1rem;
+     font-weight: 700;
+     color: #28a745;
+     /* Màu giá sản phẩm */
+ }
+
+ /* Định dạng giá khuyến mãi */
+ .product-card-pricesale {
+     font-size: 1.2rem;
+     color: #dc3545;
+     /* Màu giá khuyến mãi */
+ }
+
+ /* Định dạng giá gạch ngang nếu có khuyến mãi */
+ .product-card-price-discounted {
+     text-decoration: line-through;
+     /* Gạch ngang giá cũ khi có khuyến mãi */
+     color: #6c757d;
+     /* Màu giá gạch ngang */
+ }
+
+ /* Style cho nút thông tin thêm */
+ .product-card .btn-more-info {
+     background-color: #007bff;
+     color: white;
+     border-radius: 20px;
+     padding: 10px 20px;
+     font-size: 0.8rem;
+     transition: background-color 0.3s;
+ }
+
+ .product-card .btn-more-info:hover {
+     background-color: #0056b3;
+ }
+ .product-card:hover {
+     transform: translateY(-5px);
+     box-shadow: 0 4px 8px rgb(111, 0, 255);
+     background-color: #de9a12;
+     /* Thêm màu nền khi hover */
+ }
+
+ .product-card-text-container {
+     min-height: 60px;
+     /* Đặt chiều cao tối thiểu cho container của giá để đồng bộ chiều cao */
+ }
+ /* ===============================================================LOGIN==================================== */
+ .login-container {
+     max-width: 400px;
+     margin: 50px auto;
+     padding: 20px;
+     background: #59544a;
+     border-radius: 10px;
+     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+ }
+
+ .login-title {
+     text-align: center;
+     color: #ffffff;
+     margin-bottom: 20px;
+ }
+
+ .login-form .form-group {
+     margin-bottom: 15px;
+ }
+
+ .login-form .form-control {
+     border-radius: 5px;
+     border: 1px solid #c3a2a2;
+     padding: 10px;
+ }
+
+ .login-form .btn-primary {
+     width: 100%;
+     padding: 10px;
+     border-radius: 5px;
+     background-color: #04519e;
+     border-color: #007bff;
+ }
+/* ===========================================================USER DETAIL============================================ */
+.user-detail-container {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #59544a;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.detailusser-title {
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+.user-detail h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.user-detail-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+
+.user-detail-label {
+    font-weight: bold;
+    color: #333;
+}
+
+.user-detail-value {
+    color: #555;
+}
+/* ===============================================================SIGN UP=============================== */
+/* CSS dành riêng cho trang SignUp */
+.signup-form-container {
+    max-width: 450px;
+    margin: 40px auto;
+    padding: 25px;
+    border: 1px solid #cccccc;
+    border-radius: 10px;
+    background-color: #f8f8f8;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.signup-form-title {
+    text-align: center;
+    color: #333333;
+    margin-bottom: 25px;
+    font-size: 1.5rem;
+}
+
+.signup-form-group {
+    margin-bottom: 15px;
+}
+
+.signup-form-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #555555;
+}
+
+.signup-form-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.signup-form-button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #5cb85c;
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.signup-form-button:hover {
+    background-color: #4cae4c;
+}
+
+.signup-form-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.signup-form-link:hover {
+    color: #0056b3;
+}
+/* ==================================================CART============================ */
+.cart-container {
+    padding: 20px;
+    background-color: #b4b1aa;
+}
+
+.cart-title {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.cart-orders-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* Spacing between cards */
+}
+
+.cart-order-card {
+    background-color: #59544a;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.cart-order-header h5 {
+    background-color: #59544a;
+    color: white;
+    padding: 10px;
+    margin: 0;
+}
+
+.cart-order-header .order-link {
+    text-decoration: none;
+    color: white;
+}
+
+.cart-order-header .order-link:hover {
+    text-decoration: underline;
+}
+
+.cart-order-body {
+    padding: 15px;
+    background-color: #f7f7f7;
+    border-top: 1px solid #e7e7e7;
+}
+
+.cart-order-footer {
+    padding: 10px;
+    background-color: #e7e7e7;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-details {
+    text-decoration: none;
+    color: white;
+    background-color: #59544a;
+}
+
+.cart-empty-message {
+    text-align: center;
+    color: #888;
+    font-style: italic;
+}
+/* =========================================================Order========================= */
+/* order.css */
+
+.order-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.cart-title-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.cart-title {
+    font-size: 24px;
+}
+
+.checkout-btn {
+    background-color: #28a745;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.cart-items {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.cart-item {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.cart-item-image {
+    max-width: 100%;
+    height: auto;
+}
+
+.cart-item-name {
+    font-size: 18px;
+    margin-top: 0;
+}
+
+.cart-item-detail {
+    font-size: 16px;
+    color: #777;
+}
+
+.cart-item-description {
+    font-size: 16px;
+    color: #555;
+}
+
+.cart-item-quantity {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.quantity {
+    font-weight: bold;
+}
+
+.cart-item-price {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.price {
+    color: #e74c3c;
+}
+
+.remove-item-btn {
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.remove-item-btn:hover {
+    background-color: #c0392b;
+}
+
+/* =============================================All product by category or brand============================= */
+.category-nav .nav-item .nav-link {
+    font-family: 'Segoe UI', sans-serif;
+    padding: 10px 15px;
+    margin: 0 1px;
+    background-color: #eae6de;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    margin-bottom: 10px;
+}
+
+.category-nav .nav-item .nav-link.active,
+.category-nav .nav-item .nav-link:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Container for the category nav */
+.category-nav {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    /* For modern browsers supporting scrollbar styling */
+}
+
+/* Style for individual nav items */
+.category-nav .nav-item {
+    display: inline-block;
+    margin-right: 10px;
+    /* or any other spacing you prefer */
+}
+
+/* Style for nav links */
+.category-nav .nav-link {
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.category-nav .nav-item .nav-link.active,
+.category-nav .nav-item .nav-link:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Optionally style the scrollbar for webkit browsers */
+.category-nav::-webkit-scrollbar {
+    height: 8px;
+    /* height of the horizontal scrollbar */
+}
+
+.category-nav::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    /* color of the tracking area */
+}
+
+.category-nav::-webkit-scrollbar-thumb {
+    background: #888;
+    /* color of the scroll thumb */
+}
+
+.category-nav::-webkit-scrollbar-thumb:hover {
+    background: #555;
+    /* color of the scroll thumb on hover */
+}
+
+.brand-list {
+    margin-top: 20px;
+}
+
+.brand-list h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.brand-list ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+
+.brand-list li {
+    margin-right: 5px;
+}
+
+.brand-list a {
+    text-decoration: none;
+    color: #333;
+    background-color: #eae6de;
+    font-weight: bold;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+.brand-list-header {
+    font-size: 50px;
+    font-weight: bold;
+    color: white;
+}
+.brand-list a.active,
+.brand-list a:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+/* ====================================ABOUT US=================== */
+.aboutus-main-content {
+    padding: 40px 0;
+}
+
+.aboutus-title {
+    color: #333;
+}
+
+.aboutus-description {
+    color: #555;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.aboutus-subtitle {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.aboutus-contact-form {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+.aboutus-google-map {
+    width: 100%;
+    height: 400px;
+    padding: 20px 20px 0 20px;
+    /* You can adjust this height as needed */
+}
+
+.aboutus-google-map iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+/* ======================================================ALL POST================================================== */
+/* AllPost.css */
+
+.allpost-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.allpost-col {
+    margin-bottom: 20px;
+}
+
+.allpost-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    min-height: 300px;
+}
+
+.allpost-card:hover {
+    transform: scale(1.05);
+}
+
+.allpost-card-img-top {
+    width: 100%;
+    height: 200px;
+    /* Adjust the height as needed */
+    object-fit: cover;
+}
+
+.allpost-card-body {
+    padding: 15px;
+}
+
+.allpost-card-title {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
+
+.allpost-card-text {
+    line-height: 1.5;
+    max-height: 3.2em;
+        /* Two lines of text */
+        overflow: hidden;
+        text-overflow: ellipsis;
+}
+
+.allpost-card-footer {
+    padding: 15px;
+    text-align: center;
+}
+
+/* Responsive layout for small screens */
+@media (max-width: 768px) {
+    .allpost-card-img-top {
+        height: 150px;
+    }
+}
+/* ================================================================================POST DETAIL=============================== */
+/* PostDetail.css */
+
+.post-detail-content {
+    line-height: 1.6;
+}
